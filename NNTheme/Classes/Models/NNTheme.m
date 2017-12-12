@@ -596,7 +596,7 @@
             if (value) { self.keyPathAndValue(identifier, keyPath, value); }
         }
         NSMutableDictionary *info = [self.keyConfigInfo safeObjectForKey:@(NNConfigThemeKeyModeKeyPath)];
-        if (!info) { info = [NSMutableDictionary dictionary]; };
+        if (!info) info = [NSMutableDictionary dictionary];
         [info setObject:valueKey forKey:keyPath];
         [self.keyConfigInfo setObject:info forKey:@(NNConfigThemeKeyModeKeyPath)];
         return self;
@@ -624,10 +624,10 @@
             }] filter:^BOOL(__kindof NSString * _Nonnull obj) {
                 return [obj isKindOfClass:[NSNull class]];
             }];
-            if (values.count &&values.count == valueKeyArray.count) {  self.selectorAndArray(identifier, sel, values); }
+            if (values.count && values.count == valueKeyArray.count) self.selectorAndArray(identifier, sel, values);
         }
         NSMutableDictionary *info = [self.keyConfigInfo safeObjectForKey:@(NNConfigThemeKeyModeSelector)];
-        if (!info) { info = [NSMutableDictionary dictionary]; };
+        if (!info) info = [NSMutableDictionary dictionary];
         [info setObject:valueKeyArray ? : @[] forKey:NSStringFromSelector(sel)];
         [self.keyConfigInfo setObject:info forKey:@(NNConfigThemeKeyModeKeyPath)];
         return self;
@@ -647,7 +647,7 @@
             }];
             [info removeObjectForKey:keyPath];
         }
-        if (info) { [self.keyConfigInfo setObject:info forKey:@(NNConfigThemeKeyModeKeyPath)]; };
+        if (info) [self.keyConfigInfo setObject:info forKey:@(NNConfigThemeKeyModeKeyPath)];
         return self;
     };
 }
@@ -671,7 +671,7 @@
             }];
             [info removeObjectForKey:NSStringFromSelector(sel)];
         }
-        if (info) { [self.keyConfigInfo setObject:info forKey:@(NNConfigThemeKeyModeSelector)]; };
+        if (info) [self.keyConfigInfo setObject:info forKey:@(NNConfigThemeKeyModeSelector)];
         return self;
     };
 }

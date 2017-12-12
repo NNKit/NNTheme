@@ -167,9 +167,12 @@ typedef NNThemeConfig *(^NNConfigRemoveConfigsHandler)(void);
 @property (copy, nonatomic, readonly)   NNThemeConfig *(^selectorAndValueKey)(SEL sel, NSString *valueKey);
 @property (copy, nonatomic, readonly)   NNThemeConfig *(^selectorAndValueKeyArray)(SEL sel, NSArray *valueArray);
 
-@property (copy, nonatomic, readonly)   NNThemeConfig *(^removeKeyPathValueKey)(NSString *keyPath);
-@property (copy, nonatomic, readonly)   NNThemeConfig *(^removeSelectorValueKey)(SEL sel);
-@property (copy, nonatomic, readonly)   NNThemeConfig *(^removeValueKey)(void);
+/** 移除指定keyPath的valueKey配置 @code .removeKeyPathValueKey(keyPath) @endcode */
+@property (copy, nonatomic, readonly)   NNConfigRemoveKeyPathHandler removeKeyPathValueKey;
+/** 移除指定selector的valueKey配置 @code .removeSelectorValueKey(selector) @endcode */
+@property (copy, nonatomic, readonly)   NNConfigRemoveSelectorHandler removeSelectorValueKey;
+/** 移除通过key配置的主题信息 @code .removeValueKey() @endcode */
+@property (copy, nonatomic, readonly)   NNConfigRemoveConfigsHandler removeValueKey;
 
 /// ========================================
 /// @name   Color
