@@ -1,8 +1,9 @@
 use_frameworks!
+inhibit_all_warnings!
 
 target 'NNTheme_Example' do
-  pod 'NNTheme', :path => '../'
-
+  pod 'NNTheme', :path => '../' , :inhibit_warnings => false
+  pod 'NNCore', :path => '../../NNCore'
   target 'NNTheme_Tests' do
     inherit! :search_paths
 

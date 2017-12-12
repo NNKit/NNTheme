@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,14 +19,91 @@
                         <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIO-Qm-ZwZ">
+                                <rect key="frame" x="166.5" y="40" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="STS-HA-vim">
+                                <rect key="frame" x="31" y="81" width="313" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="66e-CE-th4"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AlO-8x-B3d">
+                                <rect key="frame" x="163" y="151" width="51" height="31"/>
+                                <connections>
+                                    <action selector="handleThemeChanged:" destination="whP-gf-Uak" eventType="valueChanged" id="ehF-4Q-fui"/>
+                                </connections>
+                            </switch>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GOF-Dl-34J">
+                                <rect key="frame" x="31" y="202" width="313" height="2"/>
+                            </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="200" translatesAutoresizingMaskIntoConstraints="NO" id="eDi-hh-EN7">
+                                <rect key="frame" x="87.5" y="224" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="GIY-SO-Nay"/>
+                                    <constraint firstAttribute="height" constant="200" id="Wnt-FI-Q5s"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yk-5Z-MNE">
+                                <rect key="frame" x="116" y="444" width="143" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Sc6-sQ-UWu"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="handleButtonThemeChanged:" destination="whP-gf-Uak" eventType="touchUpInside" id="le8-nR-qXa"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="lch-V5-60B">
+                                <rect key="frame" x="36" y="514" width="303" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="GOF-Dl-34J" secondAttribute="trailing" constant="15" id="0vg-8G-trN"/>
+                            <constraint firstItem="GOF-Dl-34J" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="2ep-aw-7y2"/>
+                            <constraint firstItem="AlO-8x-B3d" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="9dE-hL-d3Z"/>
+                            <constraint firstItem="STS-HA-vim" firstAttribute="top" secondItem="jIO-Qm-ZwZ" secondAttribute="bottom" constant="20" id="9uw-3V-JpG"/>
+                            <constraint firstItem="STS-HA-vim" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="BBj-tZ-Eeu"/>
+                            <constraint firstItem="eDi-hh-EN7" firstAttribute="top" secondItem="GOF-Dl-34J" secondAttribute="bottom" constant="20" id="DyR-Nz-BPx"/>
+                            <constraint firstItem="1Yk-5Z-MNE" firstAttribute="top" secondItem="eDi-hh-EN7" secondAttribute="bottom" constant="20" id="GEt-WJ-5XE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Yk-5Z-MNE" secondAttribute="trailing" constant="100" id="GLY-HT-qYv"/>
+                            <constraint firstItem="GOF-Dl-34J" firstAttribute="top" secondItem="AlO-8x-B3d" secondAttribute="bottom" constant="20" id="Gs2-mm-sGl"/>
+                            <constraint firstItem="lch-V5-60B" firstAttribute="top" secondItem="1Yk-5Z-MNE" secondAttribute="bottom" constant="20" id="PkE-b5-w2D"/>
+                            <constraint firstItem="GOF-Dl-34J" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" constant="15" id="RYv-1c-Dnd"/>
+                            <constraint firstItem="jIO-Qm-ZwZ" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="20" id="Zlq-Sa-IrQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lch-V5-60B" secondAttribute="trailing" constant="20" id="fDb-bM-IQD"/>
+                            <constraint firstItem="STS-HA-vim" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" constant="15" id="gus-cJ-ZQ4"/>
+                            <constraint firstItem="AlO-8x-B3d" firstAttribute="top" secondItem="STS-HA-vim" secondAttribute="bottom" constant="20" id="lWT-CM-zgP"/>
+                            <constraint firstItem="jIO-Qm-ZwZ" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="nVa-vw-g3K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="STS-HA-vim" secondAttribute="trailing" constant="15" id="q3D-uB-efm"/>
+                            <constraint firstItem="lch-V5-60B" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" constant="20" id="we8-Rn-oXS"/>
+                            <constraint firstItem="1Yk-5Z-MNE" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" constant="100" id="wmr-Ea-zRH"/>
+                            <constraint firstItem="eDi-hh-EN7" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="ydu-PA-oMM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="1Yk-5Z-MNE" id="Ak8-k1-UUi"/>
+                        <outlet property="imageView" destination="eDi-hh-EN7" id="O2h-ed-OrH"/>
+                        <outlet property="label" destination="jIO-Qm-ZwZ" id="ZTb-m9-Y8l"/>
+                        <outlet property="pageControl" destination="lch-V5-60B" id="hRH-3C-O2h"/>
+                        <outlet property="progressView" destination="GOF-Dl-34J" id="K2r-9W-FLO"/>
+                        <outlet property="switchControl" destination="AlO-8x-B3d" id="pTn-dW-6En"/>
+                        <outlet property="textField" destination="STS-HA-vim" id="i84-yC-AVD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="-18" y="435"/>
         </scene>
     </scenes>
 </document>
