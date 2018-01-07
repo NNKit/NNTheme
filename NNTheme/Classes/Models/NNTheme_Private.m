@@ -165,12 +165,10 @@
 
 + (void)load {
     
-    Method swizeMethod = class_getInstanceMethod(self, @selector(theme_dealloc));
-    if (addMethod(self, @selector(theme_dealloc), swizeMethod)) {
-        class_replaceMethod(self, @selector(theme_dealloc), method_getImplementation(swizeMethod), method_getTypeEncoding(swizeMethod));
-    } else {
-        swizzleSelector(self, NSSelectorFromString(@"dealloc"), @selector(theme_dealloc));
-    }
+    NNSwizzleMethod([self class],
+                    NSSelectorFromString(@"dealloc"),
+                    [self class],
+                    @selector(theme_dealloc));
 }
 
 - (void)theme_dealloc {
